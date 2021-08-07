@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.UserMapper">
+<!-- mapperがどのファイルであるかを宣言 -->
+<!-- xmlファイル作成後、 「次で開く」、「その他」、「JAVAエディタで変更可能」-->
+<!-- resultTypeのファイルに下の結果を返す -->
+
+<resultMap type="com.example.demo.entity.User" id="user"><!--  id属性は任意の値 -->
+<!--  columnはSQLのカラム　propertyはエンティティクラスのフィールド -->
+	<id column="id" property="id"/>
+    <result column="name" property="name"/>
+    <result column="age" property="age"/>
+</resultMap>
+
+<select id="search" resultType="com.example.demo.entity.User"> <!-- resultMap="user"でも可 -->
+<!-- id="search"はMapperのsearchメソッドが呼び出されたら、resultTypeに記載されているファイルに下のSQL文の結果を返して、呼び出し元に返す -->
+    SELECT*FROM users WHERE id = #{id} <!--#{id}は変数-->
+<!--テーブル名は、小文字大文字区別しない！-->
+</select>
+
+<select id="searchAll" resultType="com.example.demo.entity.User">
+    SELECT * FROM users
+</select>
+
+<insert id="add">
+INSERT INTO users (id, name, age) VALUE (#{id}, #{name}, #{age})
+</insert>
+</mapper>

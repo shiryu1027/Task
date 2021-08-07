@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>情報操作フォーム</title>
+<link href="/css/list.css" rel="stylesheet"></link>
+</head>
+<body>
+	<header>
+		<h1>情報操作フォーム</h1>
+	</header>
+	
+    <div class="content">
+    	<a th:href="@{/user/create}"><button>ユーザー情報登録</button></a><br>
+    	<h3>全件データ</h3>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>年齢</th>
+				<th>更新</th>
+				<th>削除</th>
+			</tr>
+			<tr th:each = userinfo:${usersinfo} th:object="${userinfo}">
+				<td class="id" th:text="*{id}"></td>
+				<td class="name" th:text="*{name}"></td>
+				<td class="age" th:text="*{age}"></td>
+				<td><a th:href="@{/user/update/id={id}(id=*{id})}"><button class="buttonSmall">更新</button></a></td>
+				<td><form th:action="@{/user/delete/id={id}(id=*{id})}"><button class="buttonSmall">削除</button></form></td>
+			</tr>
+		</table>
+		<a th:href="@{/user/search}"><button>1件検索(ID指定)</button></a><br>
+	</div>
+</body>
+</html>
+
+<!-- 
+〇<a>タグと<button>を用いて、画面遷移
+1.<a>タグの間に<button>タグを付ける
+2.th:href属性を付ける
+ -->
+ 
+<!-- 確認 -->
