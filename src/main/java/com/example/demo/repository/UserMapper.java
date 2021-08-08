@@ -15,4 +15,6 @@ public interface UserMapper {
 	List<User> searchAll();
 	
 	void add(UserSearchRequest user);
+	
+	void delete(int id);
 }
