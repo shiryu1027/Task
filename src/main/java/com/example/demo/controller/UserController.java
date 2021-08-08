@@ -45,11 +45,13 @@ public class UserController {
 		return "user/search";
 	}
 	
+	// ユーザー登録画面を表示
 	@GetMapping("/user/create")
 	public String create() {
 		return "user/create";
 	}
 	
+	// ユーザー登録を行い、ホームにリダイレクト
 	@PostMapping("/user/create")
 	public String createOne(@Validated @ModelAttribute UserSearchRequest userSearchRequest, BindingResult result) {
 		if(result.hasErrors()) {

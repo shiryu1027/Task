@@ -17,22 +17,14 @@ public class UserService {
 	
 	@Autowired
 	private UserMapper userMapper;
-	/*
-	 * 匿名クラスである
-	 * したがって、上記の@Autowiredは
-	 * = new UserMapper() {
-	 * } である
-	 * オーバーライドはしていない？？？
-	 * もしくは自動でオーバーライドされている？？？
-	 */
-	
+
 	//searchの引数にid(userSearchRequestが内包しているid)が入ってくる
 	public User search(UserSearchRequest userSearchRequest) {
 		return userMapper.search(userSearchRequest); // userMapperのサーチメソッドを呼び出す
 	}
 
-	public User search(int id) {
-		return userMapper.search(id); // userMapperのサーチメソッドを呼び出す
+	public User search(int id) { // 1種類にまとめる必要あり
+		return userMapper.search(id);
 	}
 	
 	public List<User> searchAll() {
