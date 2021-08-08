@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +30,10 @@ public class UserService {
 	public User search(UserSearchRequest userSearchRequest) {
 		return userMapper.search(userSearchRequest); // userMapperのサーチメソッドを呼び出す
 	}
+
+	public User search(int id) {
+		return userMapper.search(id); // userMapperのサーチメソッドを呼び出す
+	}
 	
 	public List<User> searchAll() {
 		return userMapper.searchAll();
@@ -38,6 +41,10 @@ public class UserService {
 	
 	public void create(UserSearchRequest userSearchRequest) {
 		userMapper.add(userSearchRequest);;
+	}
+	
+	public void update(int id, String name, int age) {
+		userMapper.update(id, name, age);
 	}
 	
 	public void delete(int id) {

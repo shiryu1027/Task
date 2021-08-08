@@ -26,6 +26,10 @@
 	INSERT INTO users (id, name, age) VALUE (#{id}, #{name}, #{age})
 </insert>
 
+<update id="update">
+	UPDATE users SET name = #{name}, age = #{age} WHERE id = #{id}
+</update>
+
 <delete id="delete">
 	DELETE FROM users WHERE id = #{id}
 </delete>

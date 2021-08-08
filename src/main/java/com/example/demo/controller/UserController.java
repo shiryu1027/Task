@@ -62,13 +62,14 @@ public class UserController {
 	// Update処理画面遷移
 	@GetMapping("/user/update/id={id}")
 	public String update(@PathVariable int id, Model model) {
-		model.addAttribute("userinfo", id);
+		model.addAttribute("userinfo", userService.search(id));
 		return "/user/update";
 	}
 	
 	// Update処理
 	@PostMapping("/user/update/id={id}")
-	public String updateProcess() {
+	public String updateProcess(@ModelAttribute UserSearchRequest user) {
+		userService.update(user.getId(), user.getName(), user.getAge());
 		return "redirect:/";
 	}
 	
