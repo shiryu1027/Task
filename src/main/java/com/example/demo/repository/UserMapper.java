@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -19,7 +20,8 @@ public interface UserMapper {
 	
 	void add(UserSearchRequest user);
 	
-	void update(@Param("id") int id, @Param("name") String name, @Param("age") int age); //@ParamはxmlのSQL文での変数名指定
+	void update(@Param("id") int id, @Param("name") String name, @Param("age") int age, @Param("birthday") LocalDate birthday);
+	//@ParamはxmlのSQL文での変数名指定
 	
 	void delete(int id);
 }

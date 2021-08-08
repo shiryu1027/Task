@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,8 +36,8 @@ public class UserService {
 		userMapper.add(userSearchRequest);;
 	}
 	
-	public void update(int id, String name, int age) {
-		userMapper.update(id, name, age);
+	public void update(int id, String name, int age, LocalDate birthday) {
+		userMapper.update(id, name, age, birthday);
 	}
 	
 	public void delete(int id) {
