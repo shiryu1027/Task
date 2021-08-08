@@ -19,7 +19,7 @@ public interface UserMapper {
 	
 	void add(UserSearchRequest user);
 	
-	void update(@Param("id") int id, @Param("name") String name, @Param("age") int age);
+	void update(@Param("id") int id, @Param("name") String name, @Param("age") int age); //@ParamはxmlのSQL文での変数名指定
 	
 	void delete(int id);
 }

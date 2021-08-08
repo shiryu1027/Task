@@ -14,7 +14,7 @@
 
 <select id="search" resultType="com.example.demo.entity.User"> <!-- resultMap="user"でも可 -->
 <!-- id="search"はMapperのsearchメソッドが呼び出されたら、resultTypeに記載されているファイルに下のSQL文の結果を返して、呼び出し元に返す -->
-    SELECT*FROM users WHERE id = #{id} <!--#{id}は変数-->
+    SELECT * FROM users WHERE id = #{id} <!--#{id}は変数-->
 <!--テーブル名は、小文字大文字区別しない！-->
 </select>
 
