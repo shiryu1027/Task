@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link href="/css/list.css" rel="stylesheet"></link>
+<title>Update</title>
 </head>
 <body>
-制作中
+	<header>
+		<h1>ユーザー情報更新</h1>
+	</header>
+	<div class="content">
+		<form th:action="@{/user/update/id={id}(id=*{id})}" th:object="${userinfo}" th:method="post">
+			<div>
+	            ID：<input type="text" name="id" th:field="*{id}" size="40" /><br>
+	            名前：<input type="text" name="name" th:field="*{name}" size="40" /><br>
+	            年齢：<input type="text" name="age" th:field="*{age}" size="40" /> <!-- th:fieldで初期値表示 -->
+	        </div>
+			<br />
+			<div>
+				<input type="submit" value="更新" style="width: 100px;" />
+	        </div>
+	        <br />
+	    </form>
+    </div>
 </body>
 </html>
