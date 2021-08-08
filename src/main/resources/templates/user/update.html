@@ -7,14 +7,15 @@
 </head>
 <body>
 	<header>
-		<h1>ユーザー情報更新</h1>
+		<h1><a th:href="@{/}">ユーザー情報更新</a></h1>
 	</header>
 	<div class="content">
 		<form th:action="@{/user/update/id={id}(id=*{id})}" th:object="${userinfo}" th:method="post">
 			<div>
 				ID：<input type="text" name="id" th:field="*{id}" size="40" /><br>
 				名前：<input type="text" name="name" th:field="*{name}" size="40" /><br>
-				年齢：<input type="text" name="age" th:field="*{age}" size="40" /> <!-- th:fieldで初期値表示 -->
+				年齢：<input type="text" name="age" th:field="*{age}" size="40" /><br> <!-- th:fieldで初期値表示 -->
+				誕生日：<input type="text" name="birthday" th:field="*{birthday}" size="40" />
 			</div>
 			<br />
 			<div>

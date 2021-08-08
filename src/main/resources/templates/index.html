@@ -17,6 +17,7 @@
 				<th>ID</th>
 				<th>名前</th>
 				<th>年齢</th>
+				<th>誕生日</th>
 				<th>更新</th>
 				<th>削除</th>
 			</tr>
@@ -24,6 +25,7 @@
 				<td class="id" th:text="*{id}"></td>
 				<td class="name" th:text="*{name}"></td>
 				<td class="age" th:text="*{age}"></td>
+				<td class="birthday" th:text="*{birthday}"></td>
 				<td><a th:href="@{/user/update/id={id}(id=*{id})}"><button class="buttonSmall">更新</button></a></td>
 				<td><form th:action="@{/user/delete/id={id}(id=*{id})}" th:method="post"><button class="buttonSmall">削除</button></form></td>
 			</tr>

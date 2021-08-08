@@ -69,7 +69,7 @@ public class UserController {
 	// Update処理
 	@PostMapping("/user/update/id={id}")
 	public String updateProcess(@ModelAttribute UserSearchRequest user) {
-		userService.update(user.getId(), user.getName(), user.getAge());
+		userService.update(user.getId(), user.getName(), user.getAge(), user.getBirthday());
 		return "redirect:/";
 	}
 	

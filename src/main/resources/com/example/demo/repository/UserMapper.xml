@@ -10,6 +10,7 @@
 	<id column="id" property="id"/>
     <result column="name" property="name"/>
     <result column="age" property="age"/>
+	<result column="birthday" property="birthday"/>
 </resultMap>
 
 <select id="search" resultType="com.example.demo.entity.User"> <!-- resultMap="user"でも可 -->
@@ -23,11 +24,11 @@
 </select>
 
 <insert id="add">
-	INSERT INTO users (id, name, age) VALUE (#{id}, #{name}, #{age})
+	INSERT INTO users (id, name, age, birthday) VALUE (#{id}, #{name}, #{age}, #{birthday})
 </insert>
 
 <update id="update">
-	UPDATE users SET name = #{name}, age = #{age} WHERE id = #{id}
+	UPDATE users SET name = #{name}, age = #{age}, birthday = #{birthday} WHERE id = #{id}
 </update>
 
 <delete id="delete">
