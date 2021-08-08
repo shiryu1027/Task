@@ -11,32 +11,34 @@
 	</header>
 	<div class="content">
 		<form th:action="@{/user/id_search}" th:method="post">
-		<!-- th:actionでpostmappingの引数を指定、th:objectはuserSearchRequest(Model)を指定(違うかも)　→ th:object="${userSearchRequest}" -->
+		<!-- th:actionでpostmappingの引数を指定-->
 			<div class="submit">
-				ID：<input type="text" name="id" size="40" /> <!-- userSearchRequestオブジェクトのidフィールドにデータを流し込む -->
+				ID：<input type="text" name="id" size="40" /> <!-- userSearchRequestオブジェクトのidフィールドにデータを流し込む(上から順に？要検証？) -->
 			</div>
 			<br />
 			<div>
 			<button>検索</button>
 			</div>
 		</form>
-	</div>
-</body>
-</html>
-
-<!-- 
-<div th:if="${userinfo}"> userinfoに中身があるなら、以下を描写
-	<table th:object="${userinfo}">  このスコープ内で使うオブジェクトを指定
-		<tr>
-			<th class="cell_title">ID</th>
+		<div th:if="${userinfo}"> <!-- userinfoに中身があるなら、以下を描写 -->
+			<table th:object="${userinfo}">  <!-- このスコープ内で使うオブジェクトを指定 -->
+				<tr>
+					<th class="cell_title">ID</th>
 					<th class="cell_title">名前</th>
 					<th class="cell_title">年齢</th>
 				</tr>
 				<tr>
 					<td class="id" th:text="*{id}"></td>
-					<td class="name" th:text="*{name}"></td> *{name}は、${userinfo.name}に一致
+					<td class="name" th:text="*{name}"></td> <!-- *{name}は、${userinfo.name}に一致 -->
 					<td class="age" th:text="*{age}"></td>
 				</tr>
 			</table>
 		</div>
+	</div>
+	
+</body>
+</html>
+
+<!-- 
+
  -->

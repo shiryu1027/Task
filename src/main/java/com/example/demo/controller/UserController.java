@@ -19,11 +19,10 @@ import com.example.demo.entity.User;
 @Controller
 public class UserController {
 	
-	// UserService型のインスタンス作成
-	@Autowired
+	@Autowired // インスタンスの注入
 	UserService userService; 
 	
-	// ホームぺージ取得
+	// トップページ表示
 	@GetMapping("/")
 	public String displaySearchAll(Model model) {
 		List<User> list = userService.searchAll();
@@ -31,7 +30,7 @@ public class UserController {
 		return "/index";
 	}
 	
-	// ユーザー情報検索画面を表示
+	// ユーザー情報検索(1件取得)画面を表示
 	@GetMapping("/user/search")
 	public String displaySearch() {
 		return "user/search";
@@ -40,8 +39,7 @@ public class UserController {
 	// ユーザー情報検索画面に検索結果を表示
 	@PostMapping("/user/id_search")
 	public String search(@ModelAttribute UserSearchRequest userSearchRequest, Model model) { // @ModelAttributeにより、自動インスタンス化
-		User user = userService.search(userSearchRequest); // userSearchRequestはpostされてきたidデータを運ぶための段ボールのようなもの
-		model.addAttribute("userinfo", user); // "userinfo"は変数名、userはオブジェクト
+		model.addAttribute("userinfo", userService.search(userSearchRequest));
 		return "user/search";
 	}
 	
