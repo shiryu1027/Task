@@ -23,6 +23,10 @@
 </select>
 
 <insert id="add">
-INSERT INTO users (id, name, age) VALUE (#{id}, #{name}, #{age})
+	INSERT INTO users (id, name, age) VALUE (#{id}, #{name}, #{age})
 </insert>
+
+<delete id="delete">
+	DELETE FROM users WHERE id = #{id}
+</delete>
 </mapper>

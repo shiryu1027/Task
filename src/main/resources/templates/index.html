@@ -26,7 +26,7 @@
 				<td class="name" th:text="*{name}"></td>
 				<td class="age" th:text="*{age}"></td>
 				<td><a th:href="@{/user/update/id={id}(id=*{id})}"><button class="buttonSmall">更新</button></a></td>
-				<td><form th:action="@{/user/delete/id={id}(id=*{id})}"><button class="buttonSmall">削除</button></form></td>
+				<td><form th:action="@{/user/delete/id={id}(id=*{id})}" th:method="post"><button class="buttonSmall">削除</button></form></td>
 			</tr>
 		</table>
 		<a th:href="@{/user/search}"><button>1件検索(ID指定)</button></a><br>

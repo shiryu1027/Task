@@ -39,4 +39,8 @@ public class UserService {
 	public void create(UserSearchRequest userSearchRequest) {
 		userMapper.add(userSearchRequest);;
 	}
+	
+	public void delete(int id) {
+		userMapper.delete(id);
+	}
 }

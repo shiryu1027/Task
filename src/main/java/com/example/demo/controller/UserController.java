@@ -59,14 +59,23 @@ public class UserController {
 		return "redirect:/"; //GetMappingを探している
 	}
 	
+	// Update処理画面遷移
 	@GetMapping("/user/update/id={id}")
 	public String update(@PathVariable int id, Model model) {
 		model.addAttribute("userinfo", id);
 		return "/user/update";
 	}
 	
+	// Update処理
 	@PostMapping("/user/update/id={id}")
 	public String updateProcess() {
+		return "redirect:/";
+	}
+	
+	//Delete処理
+	@PostMapping("/user/delete/id={id}")
+	public String delete(@PathVariable @ModelAttribute int id) {
+		userService.delete(id);
 		return "redirect:/";
 	}
 }
