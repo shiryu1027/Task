@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>情報操作フォーム</title>
-<link href="/css/list.css" rel="stylesheet"></link>
+<link href="/css/list.css" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -21,7 +21,7 @@
 				<th>更新</th>
 				<th>削除</th>
 			</tr>
-			<tr th:each = userinfo:${usersinfo} th:object="${userinfo}">
+			<tr th:each="userinfo:${usersinfo}" th:object="${userinfo}">
 				<td class="id" th:text="*{id}"></td>
 				<td class="name" th:text="*{name}"></td>
 				<td class="age" th:text="*{age}"></td>

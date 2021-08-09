@@ -15,7 +15,7 @@ header h1 {
 	padding-left:20px;
 	line-height:60px;
 	color:#222222;
-	font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', 'sans-serif;
 	/* osによって対応フォントが異なるので複数書く */
 }
 
