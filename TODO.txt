@@ -1,0 +1,30 @@
+要件
+・トップページに全ユーザー情報を表示する
+・ユーザー情報を1件取得する
+・ユーザー情報を登録できる
+・ユーザー情報を更新できる
+・ユーザー情報を削除できる
+
+テスト実施状況
+- controller
+ - [ ] UserController.java
+ 
+  - [x] 全ユーザー情報を表示したトップページを返す
+   - [x] index.htmlを返す
+   - [x] modelに変数usersinfoでList/User型のデータを流す
+   
+  - [x] ユーザー情報id検索画面を返す
+   - [x] user/search.htmlを返す
+   
+  - [x] ユーザー情報id検索画面に検索結果を返す
+   - [x] user/search.htmlを返す
+   - [x] modelに変数userinfoでUser型のデータを流す
+   
+- dto
+ - [ ] UserSearchRequest.java
+- entity
+ - [ ] User.java
+- repository
+ - [ ] UserMapper.java
+- service
+ - [ ] UserService.java
