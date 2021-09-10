@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -25,7 +27,7 @@ class UserControllerTest {
 	MockMvc mockMvc;
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	
 	@Nested
 	class 全ユーザー情報を表示したトップページを返す{
@@ -81,10 +83,61 @@ class UserControllerTest {
 			// 実行&検証
 			mockMvc.perform(
 				post("/user/id_search")
-				.flashAttr("userSearchRequest", userSearchRequest))
-			.andExpect(status().isOk())
+				.flashAttr("userSearchRequest", userSearchRequest)
+			).andExpect(status().isOk())
 			.andExpect(model().attribute("userinfo", userService.search(userSearchRequest)))
 			.andExpect(model().hasNoErrors());
 		}
+	}
+	
+	@Nested
+	class ユーザー登録画面を表示 {
+		@Test
+		@DisplayName("user/create.htmlを返す")
+		void user_create_htmlを返す() throws Exception {
+			mockMvc.perform(get("/user/create"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("user/create"));
+		}
+	}
+	
+	@Nested
+	class ユーザー登録を行い_ホームにリダイレクトする {
+		
+		@Nested
+		class 入力エラー時_user_create_htmlを返す {
+			@Test
+			@DisplayName("UserSearchRequestが空のとき、user/create.htmlを返す")
+			void user_create_htmlを返す() throws Exception {
+				
+				mockMvc.perform(
+					post("/user/create")
+					.param("id", "")
+					.param("name", "")
+					.param("age", "")
+					.param("birthday", "")
+				).andExpect(status().isOk())
+				.andExpect(view().name("user/create"))
+				.andExpect(model().attributeHasErrors("userSearchRequest"));
+			}
+		}
+		
+		@Test
+		@DisplayName(" 正常時、/にリダイレクトする")
+		void  正常時にリダイレクトする() throws Exception {
+			// 前処理
+			UserSearchRequest userSearchRequest = new UserSearchRequest();
+			userSearchRequest.setId(25);
+			userSearchRequest.setName("佐々木伸二");
+			userSearchRequest.setAge(29);
+			userSearchRequest.setBirthday(LocalDate.of(1991,10,29));
+			
+			mockMvc.perform(
+				post("/user/create")
+				.flashAttr("userSearchRequest", userSearchRequest)
+			).andExpect(status().isFound())
+			.andExpect(redirectedUrl("/"));
+		}
+		
 	}
 }

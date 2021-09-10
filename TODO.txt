@@ -6,6 +6,7 @@
 ・ユーザー情報を削除できる
 
 テスト実施状況
+(x:実装済み,!:修正要,?:実装の仕方がわからない,-:実装しない)
 - controller
  - [ ] UserController.java
  
@@ -19,6 +20,15 @@
   - [x] ユーザー情報id検索画面に検索結果を返す
    - [x] user/search.htmlを返す
    - [x] modelに変数userinfoでUser型のデータを流す
+   
+  - [x] ユーザー登録画面を表示
+   - [x] user/create.htmlを返す
+   
+  - [ ] ユーザー登録を行い、ホームにリダイレクトする
+   - [!] 入力エラー時、user/create.htmlを返す
+    - [!] UserSearchRequestが空のとき、user/create.htmlを返す
+   - [?] ユーザー登録のサービスメソッドが実行できているか
+   - [x] 正常時、"/"にリダイレクトする
    
 - dto
  - [ ] UserSearchRequest.java
