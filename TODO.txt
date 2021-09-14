@@ -1,0 +1,41 @@
+要件
+・トップページに全ユーザー情報を表示する
+・ユーザー情報を1件取得する
+・ユーザー情報を登録できる
+・ユーザー情報を更新できる
+・ユーザー情報を削除できる
+
+テスト実施状況
+(x:実装済み,!:修正要,?:実装の仕方がわからない,-:実装しない)
+- controller
+ - [ ] UserController.java
+ 
+  - [x] 全ユーザー情報を表示したトップページを返す
+   - [x] index.htmlを返す
+   - [x] UserServiceクラスのsearchAllメソッド一回呼び出す -> 空のリストでいいのか要検証 -> どちらにおいても結果は一緒
+   - [x] modelに変数usersinfoでList/User型のデータを流す
+   
+  - [x] ユーザー情報id検索画面を返す
+   - [x] user/search.htmlを返す
+   
+  - [x] ユーザー情報id検索画面に検索結果を返す
+   - [x] user/search.htmlを返す
+   - [x] modelに変数userinfoでUser型のデータを流す
+   
+  - [x] ユーザー登録画面を表示
+   - [x] user/create.htmlを返す
+   
+  - [ ] ユーザー登録を行い、ホームにリダイレクトする
+   - [!] 入力エラー時、user/create.htmlを返す
+    - [!] UserSearchRequestが空のとき、user/create.htmlを返す
+   - [?] ユーザー登録のサービスメソッドが実行できているか
+   - [x] 正常時、"/"にリダイレクトする
+   
+- dto
+ - [ ] UserSearchRequest.java
+- entity
+ - [ ] User.java
+- repository
+ - [ ] UserMapper.java
+- service
+ - [ ] UserService.java

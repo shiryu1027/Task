@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.UserSearchRequest;
-import com.example.demo.service.UserService;
 import com.example.demo.entity.User;
+import com.example.demo.service.UserService;
 
 @Controller
 public class UserController {
@@ -27,7 +27,7 @@ public class UserController {
 	public String displaySearchAll(Model model) {
 		List<User> list = userService.searchAll();
 		model.addAttribute("usersinfo", list);
-		return "/index";
+		return "index";
 	}
 	
 	// ユーザー情報検索(1件取得)画面を表示
