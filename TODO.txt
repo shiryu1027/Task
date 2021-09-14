@@ -12,6 +12,7 @@
  
   - [x] 全ユーザー情報を表示したトップページを返す
    - [x] index.htmlを返す
+   - [x] UserServiceクラスのsearchAllメソッド一回呼び出す -> 空のリストでいいのか要検証 -> どちらにおいても結果は一緒
    - [x] modelに変数usersinfoでList/User型のデータを流す
    
   - [x] ユーザー情報id検索画面を返す
