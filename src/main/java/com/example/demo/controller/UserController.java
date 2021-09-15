@@ -63,7 +63,7 @@ public class UserController {
 	@GetMapping("/user/update/id={id}")
 	public String update(@PathVariable int id, Model model) {
 		model.addAttribute("userinfo", userService.search(id));
-		return "/user/update";
+		return "user/update";
 	}
 	
 	// Update処理
@@ -75,7 +75,7 @@ public class UserController {
 	
 	//Delete処理
 	@PostMapping("/user/delete/id={id}")
-	public String delete(@PathVariable @ModelAttribute int id) {
+	public String delete(@PathVariable int id) {
 		userService.delete(id);
 		return "redirect:/";
 	}
