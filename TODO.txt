@@ -8,7 +8,7 @@
 テスト実施状況
 (x:実装済み,!:修正要,?:実装の仕方がわからない,-:実装しない)
 - controller
- - [ ] UserController.java
+ - [x] UserController.java
  
   - [x] 全ユーザー情報を表示したトップページを返す
    - [x] index.htmlを返す
@@ -44,11 +44,19 @@
    - [x] ユーザー情報削除のサービスメソッドが実行できているか
    - [x] 削除後、"/"にリダイレクトする
    
+
+ 
+- repository
+ - [x] UserMapper.java
+ ※MyBatisテストにより、MapperとMyBatisの結合テスト完了
+ ※MapperとServiceクラスの結合テストは、ControllerでのDBテストにより割愛
+  
+- service
+ - [ ] UserService.java
+ ※他のアプリでServiceクラスの単体テストの練習は確認済みなため、割愛
+ 
+※以下二つはControllerからのバリデーションチェックを行う(今回はバリデーションを付けていないため割愛)
 - dto
  - [ ] UserSearchRequest.java
 - entity
  - [ ] User.java
-- repository
- - [ ] UserMapper.java
-- service
- - [ ] UserService.java
