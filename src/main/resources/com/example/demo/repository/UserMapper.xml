@@ -24,7 +24,7 @@
 </select>
 
 <insert id="add">
-	INSERT INTO users (id, name, age, birthday) VALUE (#{id}, #{name}, #{age}, #{birthday})
+	INSERT INTO users (id, name, age, birthday) VALUES (#{id}, #{name}, #{age}, #{birthday})
 </insert>
 
 <update id="update">
