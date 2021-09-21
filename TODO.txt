@@ -44,8 +44,15 @@
    - [x] ユーザー情報削除のサービスメソッドが実行できているか
    - [x] 削除後、"/"にリダイレクトする
    
+- [ ] UserServiceTest.java
+ - [x] searchAll()メソッドを実行すると、DBにあるすべてのユーザー情報を返す
+ - [x] search()メソッドにおいて、idを指定すると一件のユーザー情報を返す
+ - [-] search()メソッドにおいて、存在しないidを指定すると、Errorを返す
+ - [x] createメソッドによって、ユーザー情報を新規登録する
+ - [x] update()メソッドによって、情報が更新される
+ ※Validatedをしていないため、エラーのテストケースは割愛
+ - [x] delete()メソッドによって、情報が削除される
 
- 
 - repository
  - [x] UserMapper.java
  ※MyBatisテストにより、MapperとMyBatisの結合テスト完了
@@ -53,7 +60,7 @@
   
 - service
  - [ ] UserService.java
- ※他のアプリでServiceクラスの単体テストの練習は確認済みなため、割愛
+ ※他のアプリでServiceクラスのMockito単体テストの練習は確認済みなため、割愛
  
 ※以下二つはControllerからのバリデーションチェックを行う(今回はバリデーションを付けていないため割愛)
 - dto
